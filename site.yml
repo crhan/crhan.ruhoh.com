@@ -1,11 +1,11 @@
-title : Blog Title
+title : I'm Crhan
 tagline: Blog Tagline
 author :
-  name : Firstname Lastname
-  email : blah@email.test
-  github : username
-  twitter : username
-  feedburner : feedname
+  name : Crhan
+  email : crhan123@gmail.com
+  github : crhan
+  twitter : ruohanc
+  feedburner : ImCrhan
 
 navigation :
   - archive.html
@@ -13,4 +13,3 @@ navigation :
   - categories.html
   - pages.html
   - about.md
-  
