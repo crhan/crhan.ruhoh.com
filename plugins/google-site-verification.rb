@@ -1,5 +1,3 @@
-require 'pry'
-require 'pry-nav'
 class Ruhoh
   module Compiler
     module GoogleSiteVerification
