@@ -1,13 +1,12 @@
 ---
 title: MacOSX 10.8 Mountain Lion 自动挂载读写 ntfs 分区
 date: '2012-08-10'
-description: 使用`ntfs-3g`替换macX原生的`ntfs`自动挂载程序, 实现macX自动挂载读写的ntfs分区, `Lion`测试可行.
+description: 使用 ntfs-3g 替换 macOSX 原生的 ntfs 自动挂载程序, 实现 macOSX 自动挂载读写的 ntfs 分区, Mountain Lion 测试可行.
 categories: 我的电脑
 tags: [MacOS]
 
-type: draft
 ---
-使用`ntfs-3g`替换macX原生的`ntfs`自动挂载程序, 实现macX自动挂载读写的ntfs分区, `Lion`测试可行.
+使用 **ntfs-3g** 替换 macOSX 原生的 **ntfs** 自动挂载程序, 实现 macOSX 自动挂载读写的ntfs分区, **Mountain Lion** 测试可行.
 
 需要以下准备:
 
