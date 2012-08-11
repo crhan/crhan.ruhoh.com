@@ -53,3 +53,17 @@ tags: [Ruhoh, Ruby]
 	![Google 网站管理员工具-验证网络所有权]({{urls.media}}/google_site_verify.png "Google 网站管理员工具-验证网络所有权")
 
 [YAML]: http://www.yaml.org/ 'YAML Ain't Markup Language'
+
+---
+
+# 下一步计划?
+
+1. 导入以前 [WordPress 博客](b.crhan.com) 上面的文章
+1. 研究一下 [Atom RSS][1] 并且想办法输出这种 RSS, 然后使用 [feedBurner][2] 来支持 [PubHubSubBub][]
+1. 研究一下如何让 [Google Reader][] 可以直接通过添加首页的方式找到本博客的 RSS 源
+1. 重新设计页面
+
+[1]: http://en.wikipedia.org/wiki/Atom_(standard) "Atom RSS"
+[2]: http://feedburner.google.com/ "Feed Burner"
+[PubHubSubBub]: https://code.google.com/p/pubsubhubbub/ "A simple, open, web-hook-based pubsub protocol & open source reference implementation."
+[Google Reader]: https://www.google.com/reader
