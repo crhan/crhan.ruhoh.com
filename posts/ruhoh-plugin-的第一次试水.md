@@ -3,7 +3,7 @@ title: Ruhoh Plugin 的第一次试水
 date: '2012-08-11'
 description: 由于 Ruhoh 的设计, 没法通过添加文章或者页面的方式来实现认证, 但是可以通过 Plugin 的方式来搞定, 并且还可以将这个设置添加到网站配置中. Let's Do it.
 categories: 我的博客
-tags: [Ruhoh]
+tags: [Ruhoh, Ruby]
 ---
 比起使用现成的博客大巴, 自己搭 [WP][] 博客起来会有很多乐趣 (以及麻烦), 而像用 [Jekyll][] 或者我现在正用着的 [Ruhoh][] 从头设计一个博客的结构, 则又有另外一番收获和体验.
 
