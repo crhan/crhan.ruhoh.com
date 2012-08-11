@@ -6,7 +6,6 @@ author :
   github : crhan
   twitter : ruohanc
   feedburner : ImCrhan
-  google_site_verification: googlef056ebc4b89ca27a
 
 navigation :
   - archive.html
@@ -14,3 +13,5 @@ navigation :
   - categories.html
   - pages.html
   - about.md
+
+google_site_verification: googlef056ebc4b89ca27a
