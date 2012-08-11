@@ -18,9 +18,9 @@ tags: [MacOS]
 [HomeBrew]: http://mxcl.github.com/homebrew/ "HomeBrew"
 [MacPorts]:  http://www.macports.org/ "MacPorts"
 [macVim]: http://code.google.com/p/macvim/ "macVim"
-[Xcode]: http://itunes.apple.com/us/app/xcode/id497799835
-[iTerm2]: http://www.iterm2.com/
-[Command Line Tools for Xcode]: https://developer.apple.com/downloads
+[Xcode]: http://itunes.apple.com/us/app/xcode/id497799835 "Xcode"
+[iTerm2]: http://www.iterm2.com/ "iTerm2"
+[Command Line Tools for Xcode]: https://developer.apple.com/downloads "Command Line Tools for Xcode"
 ---
 # 步骤 #
 ## 第一步 安装 HomeBrew
