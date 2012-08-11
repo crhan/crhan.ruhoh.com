@@ -21,7 +21,7 @@ tags: [Ruhoh]
 
 # 两步走起!
 
-1. 新建 plugins 文件夹, 并在里面新建 '[google\_site\_verification.rb][]' 文件并输入以下内容:
+1. 新建 __plugins__ 文件夹, 并在里面新建 '[google\_site\_verification.rb][]' 文件并输入以下内容:
 
 [google\_site\_verification.rb]: https://github.com/crhan/crhan.ruhoh.com/blob/babaaac3a5630dbceeedc96c4bfe5ea10a46016c/plugins/google_site_verification.rb "/plugins/google_site_verification.rb"
 
