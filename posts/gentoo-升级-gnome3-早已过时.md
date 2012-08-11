@@ -2,7 +2,7 @@
 title: Gentoo 升级 Gnome3 (早已过时)
 date: '2011-05-22'
 description: Gentoo 里面升级到 Gnome3 还是比较方便的，只要添加 gnome 的 overlay，然后更新就可以完成了，下面是一点点详述
-categories: 我的 Thinkpad
+categories: 我的 Linux
 tags: [Gentoo, Gnome]
 ---
 ## <ins datetime="2012-08-11T12:23:43+00:00">__本文内容早已过时__</ins>

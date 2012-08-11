@@ -2,7 +2,7 @@
 title: 使用 udev 解决小红点的移动速度问题
 date: '2011-05-04'
 description: Thinkpad 启动时自动设置 trackpoint 的 speed 和 sensitivity 的完美解决
-categories: 我的 Thinkpad
+categories: 我的 Linux
 tags: [Thinkpad, udev, Gentoo]
 ---
 用小黑的朋友们最爱的就是小红点了吧，但是小红点的移动速度对于大多数人来讲确实是有一点慢，那么当然需要将它调教的更灵敏一些咯。本篇先介绍了如何手动修改小红点的两项属性，接着介绍了如何使用 udev rules 来让小红点被检测到的时候自动设置属性。
