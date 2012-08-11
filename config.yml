@@ -6,7 +6,7 @@ theme : twitter
 production_url : http://blog.crhan.com
 
 posts:
-  permalink: /:categories/:title/
+  permalink: /:year/:month/:title/
   summary_lines: 20
   latest: 10
 
