@@ -17,10 +17,8 @@ tags: [Bash]
 
 当你想要一个哈希数组的时候，你并不只有一种方法去拥有它。最简单的当然是
 
-```
-declare -A hash_name
-hash_name{key}=value
-```
+	declare -A hash_name
+	hash_name{key}=value
 
 除此之外，你也可以用最普通的变量名来实现哈希，方法来自于 [StackOverflow][1]：
 
@@ -30,33 +28,27 @@ hash_name{key}=value
 
 前者是通过定义 `var_var_name` 变量来显示以该变量的值为变量名的变量的值。举个例子:
 
-```
-ocal SYSTEM_64="rhel 6.0 x86_64 release"
-local i="SYSTEM_64"
-echo ${!i}
-# output: rhel 6.0 x86_64 releasen
-```
+	ocal SYSTEM_64="rhel 6.0 x86_64 release"
+	local i="SYSTEM_64"
+	echo ${!i}
+	# output: rhel 6.0 x86_64 releasen
 
 后者可以展开以 `var_prefix` 为前缀的所有变量名，把这两点结合起来也就能实现一个哈希数组的遍历：
 
-```
-local SYSTEM_32="rhel 6.0 x86 release"
-local SYSTEM_64="rhel 6.0 x86_64 release"
-for i in "${!SYSTEM_@}"
-do
-    echo ${!i}
-done
-```
+	local SYSTEM_32="rhel 6.0 x86 release"
+	local SYSTEM_64="rhel 6.0 x86_64 release"
+	for i in "${!SYSTEM_@}"
+	do
+	    echo ${!i}
+	done
 
 这样实现的好处还是比较明显的：你可以不受到shell的一维数组的限制，实现多维数组。
 
-参考： man bash "Parameter Expansion" 部分
+> 参考： man bash "Parameter Expansion" 部分
 
 ## 一维变量元素检查 && 重新生成
 
-```
-${parameter:+word}
-``` 
+	${parameter:+word}
 
 也许你也会像我一样，让脚本的传入一些文件名，并且还希望这些文件是必然存在的。可惜大部分时候并非如此，而且你也绝对不会希望因为使用者的错误输入而导致整个脚本朝着一个不可预期的方向前进。
 
@@ -64,9 +56,7 @@ ${parameter:+word}
 
 bash会告诉你事实，并非如此，你只需要
 
-```
-var_name=${var_name:+${var_name} }${new_var}
-```
+	var_name=${var_name:+${var_name} }${new_var}
 
 就可以实现了
 
@@ -80,19 +70,17 @@ var_name=${var_name:+${var_name} }${new_var}
 
 如何发现他们的不同？试试看下面这个脚本，保存并传入多个参数后运行
 
-```
-#!/bin/bash
-echo "Positional Parameters in $@"
-for i in "$@"
-do
-    echo $i
-done
-echo "Positional Parameters in $@"
-for i in "$*"
-do
-    echo $i
-done
-```
+	#!/bin/bash
+	echo "Positional Parameters in $@"
+	for i in "$@"
+	do
+	    echo $i
+	done
+	echo "Positional Parameters in $@"
+	for i in "$*"
+	do
+	    echo $i
+	done
 
 # 日志 && exec 信息流重导向
 
@@ -106,23 +94,19 @@ done
 
 了解这些之后，生成有意义的输出就变得简单多了。
 
-```
-exec 6>&1 #将 &6 的输出，重定向到 &1, 此时的 &1 是 stdout
-exec 7>&2 #将 &7 的输出，重定向到 &2, 此时的 &2 是 stderr
-exec 1>/dev/null #将 &1 的输出，全部丢弃，（当然你也可以将它导入到一个文件做留档）
-exec 2>/dev/null #同上
-echo "This message will be directed to '/dev/null'"
-echo "This message will be directed to STDOUT" >&6
-```
+	exec 6>&1 #将 &6 的输出，重定向到 &1, 此时的 &1 是 stdout
+	exec 7>&2 #将 &7 的输出，重定向到 &2, 此时的 &2 是 stderr
+	exec 1>/dev/null #将 &1 的输出，全部丢弃，（当然你也可以将它导入到一个文件做留档）
+	exec 2>/dev/null #同上
+	echo "This message will be directed to '/dev/null'"
+	echo "This message will be directed to STDOUT" >&6
 
 # 工作目录切换 && 外部脚本引用
 
 如果脚本里面需要用到 __相同目录下的其他脚本__，怎么办？虽然这个问题困扰了我挺久，但是解决起来还是比较方便的，只要在脚本开头切换工作目录即可
 
-```
-CWD="$( cd "$( dirname "$0" )" && pwd )"
-cd $CWD
-```
+	CWD="$( cd "$( dirname "$0" )" && pwd )"
+	cd $CWD
 
 # 小结
 
