@@ -6,12 +6,8 @@ categories: 我的博客
 tags: [Ruhoh, Git, Bash]
 ---
 
-[Ruhoh][] 这个新生的东西还在缓慢的发展之中, 所以还没有成熟的 Hosting 方案出台, 官方只提供了一个基于 __USERNAME.ruhoh.com__ 的三级域名下的托管方案. 不过幸运的是, 在 [Jekyll Custom Deploy Options][1] 的帮助下, 我对 [Jekyll][] 提供的 [_Post-receive hook_][2] 稍微修改之后就能直接使用了. 下面直接上干货:
+[Ruhoh][] 这个新生的东西还在缓慢的发展之中, 所以还没有成熟的 Hosting 方案出台, 官方只提供了一个基于 Github Webhook 的, 在 __USERNAME.ruhoh.com__ 这个三级域名下的托管方案. 不过幸运的是, 在 [Jekyll Custom Deploy Options][1] 的帮助下, 我对 [Jekyll][] 提供的 [_Git Post-receive hook_][2] 稍微修改之后就能直接使用了. 下面直接上干货:
 
-[1]: https://github.com/mojombo/jekyll/wiki/Deployment "Deployment"
-[Jekyll]: http://jekyllrb.com/
-[Ruhoh]: http://ruhoh.com/
-[2]: http://www.kernel.org/pub/software/scm/git/docs/githooks.html#post-receive "githooks(5) Manual Page"
 
 	#!/bin/bash
 	export PATH=$HOME/bin:$HOME/.rvm/bin:$PATH
@@ -33,4 +29,8 @@ tags: [Ruhoh, Git, Bash]
 
 > 参考资料: [Jekyll Deployment Post-receive Hook][1]
 
+[1]: https://github.com/mojombo/jekyll/wiki/Deployment "Deployment"
+[2]: http://www.kernel.org/pub/software/scm/git/docs/githooks.html#post-receive "githooks(5) Manual Page"
 [RVM]: https://rvm.io/ 
+[Ruhoh]: http://ruhoh.com/
+[Jekyll]: http://jekyllrb.com/
