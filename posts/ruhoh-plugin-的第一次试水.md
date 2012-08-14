@@ -45,7 +45,7 @@ tags: [Ruhoh, Ruby]
 
 # 下一步计划?
 
-1. 导入以前 [WordPress 博客](b.crhan.com) 上面的文章
+1. 导入以前 [WordPress 博客](http://b.crhan.com) 上面的文章
 2. 研究一下 [Atom RSS][1] 并且想办法输出这种 RSS, 然后使用 [feedBurner][2] 来支持 [PubHubSubBub][]
 3. 研究一下如何让 [Google Reader][] 可以直接通过添加首页的方式找到本博客的 RSS 源
 4. 重新设计页面
