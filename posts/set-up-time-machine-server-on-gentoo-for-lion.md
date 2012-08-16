@@ -2,7 +2,7 @@
 title: Set up Time Machine Server on Gentoo for Lion
 date: '2011-10-03'
 description: Set up server on gentoo
-categories: 我的 Air
+categories: 我的苹果
 tags: [Gentoo, TimeMachine]
 ---
 > 重点参考来源： http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/
