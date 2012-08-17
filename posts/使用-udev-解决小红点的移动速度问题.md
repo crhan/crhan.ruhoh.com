@@ -5,6 +5,11 @@ description: Thinkpad 启动时自动设置 trackpoint 的 speed 和 sensitivity
 categories: 我的 Linux
 tags: [Thinkpad, udev, Gentoo]
 ---
+[ThinkWiki]: http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint#Sensitivity_.26_Speed "Sensitivity and Speed"
+[udev]: http://en.wikipedia.org/wiki/Udev "the device manager for the Linux kernel"
+[rules]: http://www.reactivated.net/writing_udev_rules.html "writing udev rules"
+[1]: http://renkai.org/2011/08/linux%E4%B8%8Bthinkpad%E5%B0%8F%E7%BA%A2%E7%82%B9%E7%9A%84%E9%80%9F%E5%BA%A6%E5%92%8C%E7%81%B5%E6%95%8F%E5%BA%A6%E8%AE%BE%E7%BD%AE/ "linux下thinkpad小红点的速度和灵敏度设置"
+
 用小黑的朋友们最爱的就是小红点了吧，但是小红点的移动速度对于大多数人来讲确实是有一点慢，那么当然需要将它调教的更灵敏一些咯。本篇先介绍了如何手动修改小红点的两项属性，接着介绍了如何使用 udev rules 来让小红点被检测到的时候自动设置属性。
 
 # 如何设置 #
@@ -70,8 +75,3 @@ SUBSYSTEM=serio
 * 我的小红点的 udev 位置是 __/sys/devices/platform/i8042/serio1/serio2__，而你的也不一定（尽管大多数都是这个）<ins datetime="2011-09-11T06:33:36+00:00">（Sep 11,2011 新增：根据 [这篇文章][1]，他的小红点就是 __serio4/serio5__）
 
 * 在 udev r151 规则中的 ATTRS 似乎只可以用来匹配，但是不能用来赋值，如果 ATTRS 用了一个等号的话就会出 "__invalid ATTRS operation__" 错误提示。而 ATTR 既可以用来赋值也可以用来匹配，比如如果上面改成 `ATTR{sensitivity}=="156"`，那就是说如果匹配了这条之后才修改 speed 属性。
-
-[ThinkWiki]: http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint#Sensitivity_.26_Speed "Sensitivity and Speed"
-[udev]: http://en.wikipedia.org/wiki/Udev "the device manager for the Linux kernel"
-[rules]: http://www.reactivated.net/writing_udev_rules.html "writing udev rules"
-[1]: http://renkai.org/2011/08/linux%E4%B8%8Bthinkpad%E5%B0%8F%E7%BA%A2%E7%82%B9%E7%9A%84%E9%80%9F%E5%BA%A6%E5%92%8C%E7%81%B5%E6%95%8F%E5%BA%A6%E8%AE%BE%E7%BD%AE/ "linux下thinkpad小红点的速度和灵敏度设置"

@@ -15,12 +15,8 @@ tags: [Gentoo]
 
 批量修改运行脚本：
 
-```
-sed -i 's/\(libreoffice\)3.4/\1/' /usr/share/applications/libreoffice-*
-```
+	sed -i 's/\(libreoffice\)3.4/\1/' /usr/share/applications/libreoffice-*
 
 建立软链接：
 
-```
-ln -s libreoffice /usr/bin/libreoffice3.4
-```
+	ln -s libreoffice /usr/bin/libreoffice3.4

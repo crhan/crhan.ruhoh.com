@@ -5,9 +5,12 @@ description: 之前对 shell 脚本的认识还十分浅薄，认为他不过是
 categories: 我的程序
 tags: [Bash]
 ---
-受到了 [主席][1] 的鼓励，分享一下我前段时间实习写bash脚本学到的一些东西。
-
 [1]: http://imtx.me
+[2]: http://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash
+[3]: http://tldp.org/LDP/abs/html/io-redirection.html "io redirection"
+[4]: http://www.funtoo.org/wiki/Keychain
+
+受到了 [主席][1] 的鼓励，分享一下我前段时间实习写bash脚本学到的一些东西。
 
 之前对 __shell__ 脚本的认识还十分浅薄，认为他不过是一系列命令的组合罢了。经过这段时间的实践之后，发现 __shell__ 脚本远不止于此，他最精华的部分在于对变量的处理而产生很多丰富的功能实现
 
@@ -22,7 +25,6 @@ tags: [Bash]
 
 除此之外，你也可以用最普通的变量名来实现哈希，方法来自于 [StackOverflow][1]：
 
-[2]: http://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash
 
 利用 `${!var_var_name}` 和 `${!var_prefix*}` 的 shell 自动展开来实现。
 
@@ -90,8 +92,6 @@ bash会告诉你事实，并非如此，你只需要
 
 这一部分内容在 [tldp][3] 上讲的特别清楚，他详细的讲述了什么是文件描述符 (file descriptor)，也告诉你了 bash 默认把 __0__ 号文件描述符打开为 __stdin__，__1__ 号打开为 __STDOUT__，__2__ 号打开为 __STDERR__。而正常的 __*nux__ 程序都会把标准输出导向 __&1__（表示一号描述符），把标准错误导向 __&2__。
 
-[3]: http://tldp.org/LDP/abs/html/io-redirection.html "io redirection"
-
 了解这些之后，生成有意义的输出就变得简单多了。
 
 	exec 6>&1 #将 &6 的输出，重定向到 &1, 此时的 &1 是 stdout
@@ -112,6 +112,4 @@ bash会告诉你事实，并非如此，你只需要
 
 bash 的功能很强大，写完这个 bash 脚本后，3000 多行的 bash 手册我也才翻熟了三分之一，shell 脚本虽小，但也能做到五脏俱全，能写完这个脚本，我打心底里感谢 __Funtoo Fundation__ 出品的 [__keychain__][4] 脚本，从里面获得了不少灵感。
 
-[4]: http://www.funtoo.org/wiki/Keychain
-
-<img class="alignnone" title="fly" src="https://lh3.googleusercontent.com/-cSo1Y6rDcl0/TmCORE-iaJI/AAAAAAAAAjw/wn295ulkR8E/s720/DSCF1599-1.JPG" alt="" width="554" height="369" />
+![](https://lh3.googleusercontent.com/-cSo1Y6rDcl0/TmCORE-iaJI/AAAAAAAAAjw/wn295ulkR8E/s720/DSCF1599-1.JPG "fly")

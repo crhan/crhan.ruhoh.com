@@ -5,6 +5,18 @@ description: 配置 LDAP 并且使 Linux 可以通过 LDAP 信息认证登陆
 categories: 我的 Linux
 tags: [LDAP, Gentoo]
 ---
+[1]: http://www.l-penguin.idv.tw/article/ldap-1.htm "LDAP 入門"
+[2]: http://www.l-penguin.idv.tw/article/ldap-3.htm "LDAP - 整合 Linux user login"
+[3]: http://www.gentoo.org/doc/en/ldap-howto.xml "Gentoo Guide to OpenLDAP Authentication"
+[4]: http://www.howtoforge.com/linux_ldap_authentication "LDAP Authentication In Linux"
+[5]: http://docs.oracle.com/cd/E24847_01/html/E22302/ldapsecure-89.html#scrolltoc "缺省目录信息树 (Directory Information Tree, DIT)"
+[6]: http://gpo.zugaina.org/net-nds/openldap "openldap"
+[7]: http://gpo.zugaina.org/sys-auth/nss_ldap "nss_ldap"
+[8]: http://linux.die.net/man/5/pam_ldap "man 5 pam_ldap"
+[9]: http://linux.die.net/man/5/slapd.conf "man 5 slapd.conf"
+[10]: http://docs.oracle.com/cd/E24847_01/html/E22302/a12swit-89620.html "关于名称服务转换器"
+[11]: http://linux.die.net/man/5/nsswitch.conf "man 5 nsswitch.conf"
+[12]: http://www.padl.com/OSS/nss_ldap.html "nss_ldap"
 
 * LDAP的初步介绍请看: [l-penguin的LDAP入门][1] && [LDAP - 整合 Linux user login][2]
 * Gentoo 的 LDAP 重要参考: [Gentoo Guide to OpenLDAP Authentication][3]
@@ -58,10 +70,6 @@ tags: [LDAP, Gentoo]
 
 
 1. 配置[名称服务转换器][10] [nsswitch.conf][11]
-
-[10]: http://docs.oracle.com/cd/E24847_01/html/E22302/a12swit-89620.html "关于名称服务转换器"
-[11]: http://linux.die.net/man/5/nsswitch.conf "man 5 nsswitch.conf"
-[12]: http://www.padl.com/OSS/nss_ldap.html "nss_ldap"
 
 		passwd:      files ldap
 		shadow:      files ldap
@@ -194,13 +202,3 @@ tags: [LDAP, Gentoo]
 		=> Enter login(LDAP) password: 
 
 # 恭喜成功
-
-[1]: http://www.l-penguin.idv.tw/article/ldap-1.htm "LDAP 入門"
-[2]: http://www.l-penguin.idv.tw/article/ldap-3.htm "LDAP - 整合 Linux user login"
-[3]: http://www.gentoo.org/doc/en/ldap-howto.xml "Gentoo Guide to OpenLDAP Authentication"
-[4]: http://www.howtoforge.com/linux_ldap_authentication "LDAP Authentication In Linux"
-[5]: http://docs.oracle.com/cd/E24847_01/html/E22302/ldapsecure-89.html#scrolltoc "缺省目录信息树 (Directory Information Tree, DIT)"
-[6]: http://gpo.zugaina.org/net-nds/openldap "openldap"
-[7]: http://gpo.zugaina.org/sys-auth/nss_ldap "nss_ldap"
-[8]: http://linux.die.net/man/5/pam_ldap "man 5 pam_ldap"
-[9]: http://linux.die.net/man/5/slapd.conf "man 5 slapd.conf"

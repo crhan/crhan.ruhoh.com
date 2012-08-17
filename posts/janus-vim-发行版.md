@@ -5,6 +5,10 @@ description: Janus -- 这是一个 Vim(Gvim & MacVim) 插件和键映射的发�
 categories: 我的编辑器
 tags: [Vim]
 ---
+[Pathogen]: https://github.com/tpope/vim-pathogen "tpope / vim-pathogen"
+[Janus]: https://github.com/carlhuda/janus "carlhuda / janus"
+[1]: https://github.com/crhan/.janus/blob/master/mklink.sh
+
 [Janus][] 的首页是这么介绍它自己的: 
 
 > Janus: Vim 的发行版
@@ -34,7 +38,3 @@ tags: [Vim]
 	done
 	git submodule init
 	git submodule update
-
-[Pathogen]: https://github.com/tpope/vim-pathogen "tpope / vim-pathogen"
-[Janus]: https://github.com/carlhuda/janus "carlhuda / janus"
-[1]: https://github.com/crhan/.janus/blob/master/mklink.sh

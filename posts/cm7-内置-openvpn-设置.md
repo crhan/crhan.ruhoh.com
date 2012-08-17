@@ -5,14 +5,14 @@ description: CM7早已内置了openvpn的功能，但是似乎在官网上面没
 categories: 我的手机
 tags: [Android, Openvpn]
 ---
-CM7 早已内置了 openvpn 的功能，但是似乎在官网上面没有写明如何使用，这给我的openvpn 设置带来了一点麻烦，因为我 openvpn 总共有四个文件：ca.crt, client.crt, client.key 和 client.ovpn，我找不到地方能把它们全部添加进 android 的存储凭证中。不过还好 [@dickeny][1] 给了我一点提示:
-可以把几个证书文件打包成 [pkcs12][4] 格式放入 SD 卡中。接着就找到了篇文章参考: [CyanogenMod OpenVPN GUI – how to load keys&certs][2](_已404_),
-还有openvpn上的文件功能解释：[OpenVpn HOWTO][3]。
-
 [1]: https://twitter.com/#!/dickeny/status/65096019158904835
 [2]: http://olorin.info/blog/2010/03/cyanogenmod-openvpn-gui-how-to-load-keyscerts
 [3]: http://openvpn.net/index.php/open-source/documentation/howto.html#pki
 [4]: http://en.wikipedia.org/wiki/PKCS12
+
+CM7 早已内置了 openvpn 的功能，但是似乎在官网上面没有写明如何使用，这给我的openvpn 设置带来了一点麻烦，因为我 openvpn 总共有四个文件：ca.crt, client.crt, client.key 和 client.ovpn，我找不到地方能把它们全部添加进 android 的存储凭证中。不过还好 [@dickeny][1] 给了我一点提示:
+可以把几个证书文件打包成 [pkcs12][4] 格式放入 SD 卡中。接着就找到了篇文章参考: [CyanogenMod OpenVPN GUI – how to load keys&certs][2](_已404_),
+还有openvpn上的文件功能解释：[OpenVpn HOWTO][3]。
 
 简单的描述一下：
 

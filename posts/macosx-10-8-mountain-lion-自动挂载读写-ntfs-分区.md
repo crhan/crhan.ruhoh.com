@@ -6,6 +6,13 @@ categories: 我的苹果
 tags: [MacOS]
 
 ---
+[HomeBrew]: http://mxcl.github.com/homebrew/ "HomeBrew"
+[MacPorts]:  http://www.macports.org/ "MacPorts"
+[macVim]: http://code.google.com/p/macvim/ "macVim"
+[Xcode]: http://itunes.apple.com/us/app/xcode/id497799835 "Xcode"
+[iTerm2]: http://www.iterm2.com/ "iTerm2"
+[Command Line Tools for Xcode]: https://developer.apple.com/downloads "Command Line Tools for Xcode"
+
 使用 **ntfs-3g** 替换 macOSX 原生的 **ntfs** 自动挂载程序, 实现 macOSX 自动挂载读写的ntfs分区, **Mountain Lion** 测试可行.
 
 需要以下准备:
@@ -15,13 +22,8 @@ tags: [MacOS]
 1. 熟悉的文本编辑器一枚(我用 [macVim][], 也可用 [HomeBrew][] 安装)
 1. 终端一只 (*spotlight* 搜索 *Terminal* 即可, 另外推荐下 [iTerm2][])
 
-[HomeBrew]: http://mxcl.github.com/homebrew/ "HomeBrew"
-[MacPorts]:  http://www.macports.org/ "MacPorts"
-[macVim]: http://code.google.com/p/macvim/ "macVim"
-[Xcode]: http://itunes.apple.com/us/app/xcode/id497799835 "Xcode"
-[iTerm2]: http://www.iterm2.com/ "iTerm2"
-[Command Line Tools for Xcode]: https://developer.apple.com/downloads "Command Line Tools for Xcode"
 ---
+
 # 步骤 #
 ## 第一步 安装 HomeBrew
 

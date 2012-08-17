@@ -5,38 +5,39 @@ description: Gentoo 里面升级到 Gnome3 还是比较方便的，只要添加 
 categories: 我的 Linux
 tags: [Gentoo, Gnome]
 ---
+[1]: http://bone.twbbs.org.tw/blog/archives/2139 "Install GNOME3 on Gentoo Linux." 
+[2]: http://www.gentoo.org/proj/en/overlays/userguide.xml#doc_chap2 "Gentoo Overlays: Users' Guide"
+
 ## <ins datetime="2012-08-11T12:23:43+00:00">__本文内容早已过时__</ins>
 -----
 
-Gentoo 里面升级到 Gnome3 还是比较方便的，只要添加 gnome 的 overlay，然后更新就可以完成了，下面是一点点详述
+	Gentoo 里面升级到 Gnome3 还是比较方便的，只要添加 gnome 的 overlay，然后更新就可以完成了，下面是一点点详述
 
-```
-# 安装 layman
-emerge layman
+	# 安装 layman
+	emerge layman
 
-# 添加 gnome overlay
-layman -a gnome
+	# 添加 gnome overlay
+	layman -a gnome
 
-# 添加 overlay 配置
-echo "source /var/lib/layman/make.conf" >> /etc/make.conf
+	# 添加 overlay 配置
+	echo "source /var/lib/layman/make.conf" >> /etc/make.conf
 
-# 让 eix-sync 自动更新所有 layman 里的 overlay
-echo "*" >> /etc/eix-sync.conf
+	# 让 eix-sync 自动更新所有 layman 里的 overlay
+	echo "*" >> /etc/eix-sync.conf
 
-# 更新 portage 树
-eix-sync
+	# 更新 portage 树
+	eix-sync
 
-# 用 gnome overlay 提供的文件 unmask 所有 gnome3 相关的包
-[ -d /etc/portage/profile/ ] || mkdir -p /etc/portage/profile/
-ln -sf /var/lib/layman/gnome/status/portage-configs/package.use.mask.gnome3 /etc/portage/profile/package.use.mask
-ln -sf /var/lib/layman/gnome/status/portage-configs/package.unmask.gnome3 /etc/portage/profile/package.unmask
+	# 用 gnome overlay 提供的文件 unmask 所有 gnome3 相关的包
+	[ -d /etc/portage/profile/ ] || mkdir -p /etc/portage/profile/
+	ln -sf /var/lib/layman/gnome/status/portage-configs/package.use.mask.gnome3 /etc/portage/profile/package.use.mask
+	ln -sf /var/lib/layman/gnome/status/portage-configs/package.unmask.gnome3 /etc/portage/profile/package.unmask
 
 
-# 升级
-emerge -uDav world
+	# 升级
+	emerge -uDav world
 
-# 根据提示进行操作，该mask的mask，该unmask的unmask，gentoo的提示很完善，跟着做就ok了。
-```
+	# 根据提示进行操作，该mask的mask，该unmask的unmask，gentoo的提示很完善，跟着做就ok了。
 
 在这些步骤里面只有一件事情碰到了一点困难，就是更新 evolution3.0 的时候居然编译失败，错误显示是被 /usr/lib64/libebook-1.2.so 所引用的 /usr/lib64/libcamel-1.2.so.19 找不到。去irc上面求助之后终于解决。
 
@@ -52,6 +53,3 @@ emerge -uDav world
 
 > * [Install GNOME3 on Gentoo Linux][1]
 > * [Gentoo Overlays: Users' Guide][2]
-
-[1]: http://bone.twbbs.org.tw/blog/archives/2139 "Install GNOME3 on Gentoo Linux." 
-[2]: http://www.gentoo.org/proj/en/overlays/userguide.xml#doc_chap2 "Gentoo Overlays: Users' Guide"

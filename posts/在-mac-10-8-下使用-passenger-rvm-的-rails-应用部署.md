@@ -5,6 +5,15 @@ description: 本文在 MacOSX 10.8 MountainLion 下测试通过 -- 在 Mac 10.8 
 categories: 我的苹果
 tags: [Passenger, Rvm]
 ---
+[1]: http://blog.ninjahideout.com/posts/a-guide-to-a-nginx-passenger-and-rvm-server "A Guide to a Nginx, Passenger and RVM Server"
+[2]: https://github.com/mxcl/homebrew/wiki/Installation "InstallationNew Page Edit Page Page History"
+[3]: http://trevorturk.com/2010/09/22/passenger-with-nginx-on-mac-os-x-2nd-edition-2/ "Passenger with nginx on Mac OS X (2nd edition)"
+[Installing Rvm]: https://rvm.io/rvm/install/ "Quick (guided) Install"
+[Passenger]: http://www.modrails.com/ "Phusion Passenger"
+[Nginx]: http://nginx.org/ "nginx [engine x] is an HTTP and reverse proxy server, as well as a mail proxy server"
+[Homebrew]: http://mxcl.github.com/homebrew/ "The missing package manager for OS X"
+
+
 > 本文在 MacOSX 10.8 MountainLion 下测试通过
 
 # 安装 Homebrew
@@ -83,13 +92,3 @@ RVM 是 ruby 的环境隔离工具
 
 	sudo nginx -t # 测试 nginx 配置
 	sudo nginx #启动
-
-
-
-[1]: http://blog.ninjahideout.com/posts/a-guide-to-a-nginx-passenger-and-rvm-server "A Guide to a Nginx, Passenger and RVM Server"
-[2]: https://github.com/mxcl/homebrew/wiki/Installation "InstallationNew Page Edit Page Page History"
-[3]: http://trevorturk.com/2010/09/22/passenger-with-nginx-on-mac-os-x-2nd-edition-2/ "Passenger with nginx on Mac OS X (2nd edition)"
-[Homebrew]: http://mxcl.github.com/homebrew/ "The missing package manager for OS X"
-[Installing Rvm]: https://rvm.io/rvm/install/ "Quick (guided) Install"
-[Passenger]: http://www.modrails.com/ "Phusion Passenger"
-[Nginx]: http://nginx.org/ "nginx [engine x] is an HTTP and reverse proxy server, as well as a mail proxy server"

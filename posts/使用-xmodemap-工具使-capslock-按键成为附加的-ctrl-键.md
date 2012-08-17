@@ -5,6 +5,9 @@ description: Use xmodmap to make CapsLk an addtional Ctrl
 categories: 我的 Linux
 tags: [XModeMap]
 ---
+[1]: http://blog.csdn.net/lqk1985/article/details/5152115 "xmodmap修改键映射"
+[2]: http://c2.com/cgi/wiki?RemapCapsLock "Remap Caps Lock"
+
 结果很简单，过程很曲折，完整的代码如下，将其放入 `~/.Xmodmap` 中即可：
 
 ```
@@ -20,6 +23,3 @@ PS: keycode 66 就是CapsLk键
 
 > * [CSDN xmodmap修改键映射][1]
 > * [Remap Caps Lock][2]
-
-[1]: http://blog.csdn.net/lqk1985/article/details/5152115 "xmodmap修改键映射"
-[2]: http://c2.com/cgi/wiki?RemapCapsLock "Remap Caps Lock"

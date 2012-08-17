@@ -3,10 +3,22 @@ title: 搭建 Girocco
 date: '2011-12-16'
 description: git hosting solution from from repo.or.cz
 categories: 我的玩具
-tags: []
+tags: [Git]
 ---
-# 起因
+[1]: http://en.wikipedia.org/wiki/Distributed_Version_Control_System
+[2]: http://www.worldhello.net/2011/11/30/05-gitolite-adc.html
+[3]: http://stackoverflow.com/questions/438163/whats-the-best-web-interface-for-git-repositories "What's the best Web interface for Git repositories?"
+[4]: http://repo.or.cz/w/girocco.git/blob/HEAD:/README
+[5]: http://www.campin.net/syslog-ng/faq.html#chroot
+[git]: http://git-scm.com/
+[Gitolite]: http://www.ossxp.com/doc/git/gitolite.html
+[Girocco]: http://repo.or.cz/w/girocco.git/
+[repo.or.cz]: http://repo.or.cz/
+[Gitorious]: http://gitorious.org/
+[Github]: https://github.com
+[Gitosis]: http://progit.org/book/zh/ch4-7.html
 
+# 起因
 
 由于学校社团的开发团队开始慢慢扩张, 
 为了避免自己被开发没日没夜的代码提交等问题困扰, 
@@ -20,7 +32,6 @@ tags: []
 所以第一次给所有人开设账号变得 __非常麻烦__
 ( 比如先要普及关于公私钥对的知识等等). 
 在使用了一段时间之后, 还遇到了如下问题:
-
 
 
 * 用户随意建立的版本库无法自行删除 (似乎使用 [gitolite-adc][2]可以解决,但是尚未尝试 )
@@ -39,28 +50,23 @@ tags: []
 
 先把代码检出 `git://repo.or.cz/girocco.git` 按照 _INSTALL_ 文件的说明, 先按需修改 _Girocco/Config.pm_ 文件, 然后 `make install`
 
-```
-our $basedir = "/opt/Girocco/base";
-our $reporoot = "/opt/Girocco/repo";
-our $chroot = "/opt/Girocco/j";
-our $webroot = "/opt/Girocco/WWW";
-our $cgiroot = "/opt/Girocco/WWW";
-our $webreporoot = "/opt/Girocco/WWW/r";
-```
+	our $basedir = "/opt/Girocco/base";
+	our $reporoot = "/opt/Girocco/repo";
+	our $chroot = "/opt/Girocco/j";
+	our $webroot = "/opt/Girocco/WWW";
+	our $cgiroot = "/opt/Girocco/WWW";
+	our $webreporoot = "/opt/Girocco/WWW/r";
 
 这时候出了点问题, 发现这个项目并不是这么完善. 我的搭建环境是:  
 __'Gentoo hardened/linux/amd64/no-multilib 3.0.4-hardened-r4'__
-
 
 _Girocco_ 提供的 _jailsetup.sh_ 中的 __shabong__ 是 __/bin/sh__ 然后在第七行写着 `. shlib.sh` 结果运行中提示 __file not found__ 错误. 后来尝试性的改成了 `. ./shlib.sh` 就找到这个文件了, 这是第一个没有良好兼容性的问题.
 
 重新运行, 接着又提示找不到 __git-index-pack__
 
-```
-for i in git git-index-pack git-receive-pack git-shell git-update-server-info git-upload-archive git-upload-pack git-unpack-objects; do
-    pull_in_bin /usr/bin/$i bin
-done
-```
+	for i in git git-index-pack git-receive-pack git-shell git-update-server-info git-upload-archive git-upload-pack git-unpack-objects; do
+	    pull_in_bin /usr/bin/$i bin
+	done
 
 接着我在 _/usr/libexec/git-core/_ 里面找到了所有的文件, 于是把循环体改成了 `pull_in_bin /usr/libexec/git-core/$i bin`
 
@@ -68,10 +74,8 @@ done
 
 最后还要修改一个脚本变量, 在 __jobs/fixupcheck.sh__ 的第15, 17行, 将两个变量改成与 __Girocco/Config.pm__ 中的设定一致
 
-```
-reporoot="/opt/Girocco/repo"
-chroot="/opt/Girocco/j"
-```
+	reporoot="/opt/Girocco/repo"
+	chroot="/opt/Girocco/j"
 
 然后把他复制到 __/root__ 目录下
 
@@ -85,23 +89,19 @@ chroot="/opt/Girocco/j"
 
 ### a. 自动挂载repo目录至 chroot 环境
 
-```
-cat >> /etc/fstab <<EOF
-/proc /opt/Girocco/j/proc none defaults,bind 0 0
-/opt/Girocco/repo /opt/Girocco/j/srv/git none defaults,bind 0 0
-EOF
-mount -a
-```
+	cat >> /etc/fstab <<EOF
+	/proc /opt/Girocco/j/proc none defaults,bind 0 0
+	/opt/Girocco/repo /opt/Girocco/j/srv/git none defaults,bind 0 0
+	EOF
+	mount -a
 
 ### b. 让 syslog-ng 监听 chroot 的 log 设备
 
 在 __/etc/syslog-ng/syslog-ng/conf__ 的 __source__ 部分加上额外的监听, 并重启进程:
 
-```
-source jail1{
-    unix-stream("/opt/Girocco/j/dev/log");
-};
-```
+	source jail1{
+	    unix-stream("/opt/Girocco/j/dev/log");
+	};
 
 > 参考资料: [syslog-ng faq][5]
 
@@ -115,11 +115,9 @@ source jail1{
 
 	mkdir /opt/Girocco/j/var/empty
 
-
 最后启动 _sshd_
 
 	chroot /opt/Girocco/j /sbin/sshd
-
 
 ## 第四步 添加 crontab
 
@@ -127,7 +125,6 @@ source jail1{
 
 	*/2  * * * * /usr/bin/nice -n 18 /root/fixupcheck.sh # adjust frequency based on number of repos
 	*/30 * * * * /usr/bin/nice -n 18 /opt/Girocco/base/jobd/jobd.sh -q --all-once
-
 
 ## 完成
 
@@ -140,18 +137,3 @@ source jail1{
 遗憾之余只好决定把这段经历记录下来, 以慰藉我失去的那 <big>__5个小时__</big>时光
 
 [![]({{urls.media}}/girocco_crhan.jpeg)](http://www.flickr.com/photos/cncrhan/6572992149/)
-
-
-
-[1]: http://en.wikipedia.org/wiki/Distributed_Version_Control_System
-[2]: http://www.worldhello.net/2011/11/30/05-gitolite-adc.html
-[3]: http://stackoverflow.com/questions/438163/whats-the-best-web-interface-for-git-repositories "What's the best Web interface for Git repositories?"
-[4]: http://repo.or.cz/w/girocco.git/blob/HEAD:/README
-[5]: http://www.campin.net/syslog-ng/faq.html#chroot
-[git]: http://git-scm.com/
-[Gitolite]: http://www.ossxp.com/doc/git/gitolite.html
-[Girocco]: http://repo.or.cz/w/girocco.git/
-[repo.or.cz]: http://repo.or.cz/
-[Gitorious]: http://gitorious.org/
-[Github]: https://github.com
-[Gitosis]: http://progit.org/book/zh/ch4-7.html
