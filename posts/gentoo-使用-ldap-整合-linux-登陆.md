@@ -24,7 +24,7 @@ tags: [LDAP, Gentoo]
 * LDAP目录树的缺省结构: [缺省目录信息树 (Directory Information Tree, DIT)][5]
 
 
-# 简略步骤
+## 简略步骤
 
 1. 安装 [openLDAP][6] && [nss_ldap][7] && [pam_ldap][8] 组件
 
@@ -117,7 +117,7 @@ tags: [LDAP, Gentoo]
 1. 搞定
 
 
-# 添加 LDAP 用户
+## 添加 LDAP 用户
 
 	ldapadd -x -D 'cn=Manager,dc=myzjut,dc=org' -w secret -f init.ldif
 
@@ -189,7 +189,7 @@ tags: [LDAP, Gentoo]
 	objectClass: organizationalUnit
 	objectClass: top
 
-# 验证
+## 验证
 
 1. 名称服务, 若完全按照上面的步骤, 输入下面的命令, 应该都有输出
 
@@ -201,4 +201,4 @@ tags: [LDAP, Gentoo]
 		passwd test_ldap
 		=> Enter login(LDAP) password: 
 
-# 恭喜成功
+## 恭喜成功

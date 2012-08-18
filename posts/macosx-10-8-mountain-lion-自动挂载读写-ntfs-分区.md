@@ -24,14 +24,14 @@ tags: [MacOS]
 
 ---
 
-# 步骤 #
-## 第一步 安装 HomeBrew
+## 步骤 #
+### 第一步 安装 HomeBrew
 
 	/usr/bin/ruby <(curl -fsSk https://raw.github.com/mxcl/homebrew/go)
 
 > 参考链接: [https://github.com/mxcl/homebrew/wiki/installation](https://github.com/mxcl/homebrew/wiki/installation "HomeBrew")
 
-## 第二步 安装 ntfs-3g
+### 第二步 安装 ntfs-3g
 
 	brew install ntfs-3g
 	sudo /bin/cp -rfX $(brew --prefix fuse4x-kext)/Library/Extensions/fuse4x.kext /System/Library/Extensions
@@ -39,7 +39,7 @@ tags: [MacOS]
 
 > 参考链接: [http://fuse4x.org/](http://fuse4x.org/ "fuse4x.org")
 
-## 第三步 替换原生的挂载程序
+### 第三步 替换原生的挂载程序
 
 	# 备份原有的挂载程序
 	sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.orig
@@ -99,14 +99,14 @@ tags: [MacOS]
     
     exit $?;
 
-# 搞定
+## 搞定
 
-## 附加步骤: 万一你想复原
+### 附加步骤: 万一你想复原
 
 	sudo mv /sbin/mount_ntfs{.orig,}
 	# 运行上面这段代码即可
 	
-## 	常见问题
+### 	常见问题
 
 如果你升级了 **Fuse4x**, 需要先卸载旧的内核扩展再进行上面的第二步. 首先确认一下那些基于 FUSE 的文件系统有没有跑着:
 

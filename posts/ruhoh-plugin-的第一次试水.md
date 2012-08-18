@@ -26,7 +26,7 @@ tags: [Ruhoh, Ruby]
 
 由于 [Ruhoh][] 的设计, 没法通过添加文章或者页面的方式来实现认证, 但是可以通过 [Plugin][] 的方式来搞定, 并且还可以将这个设置添加到网站配置中. 只需要两步:
 
-# 两步走起!
+## 两步走起!
 
 1. 新建 __plugins__ 文件夹, 并在里面新建 '[google\_site\_verification.rb][]' 文件并输入以下内容:
 
@@ -57,7 +57,7 @@ tags: [Ruhoh, Ruby]
 
 ---
 
-# 下一步计划?
+## 下一步计划?
 
 1. 导入以前 [WordPress 博客](http://b.crhan.com) 上面的文章
 2. 研究一下 [Atom RSS][1] 并且想办法输出这种 RSS, 然后使用 [feedBurner][2] 来支持 [PubHubSubBub][]

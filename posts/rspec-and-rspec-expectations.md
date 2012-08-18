@@ -7,13 +7,13 @@ tags: [ruby, rspec]
 
 ---
 
-# Describe
+## Describe
 `describe` and `context` is **alias**
 
     describe User, "with no roles assigned" { ... } 
     => User with no roles assigned
 
-# It
+## It
 `specify()` is alias of `it()`
 
     describe "A new chess board" do
@@ -21,7 +21,7 @@ tags: [ruby, rspec]
       specify { @board.should have(32).pieces }
     end
 
-# Pending
+## Pending
 
 There are three method to pending test
 
@@ -49,7 +49,7 @@ There are three method to pending test
             end
         end
 
-# Hooks
+## Hooks
 
 1. `before(:each)`, `before(:all)`
 1. `after(:each)`, `after(:all)`
@@ -68,7 +68,7 @@ There are three method to pending test
             end
         end
 
-# Helper Methods
+## Helper Methods
 
     describe Thing do
       def given_thing_with(options)
@@ -92,7 +92,7 @@ There are three method to pending test
       end
     end
 
-# Shared Example
+## Shared Example
 
 1. Set up shared example with the `shared_examples_for()` method
 
@@ -145,7 +145,7 @@ There are three method to pending test
             tastes really good
             is available by the slice
 
-# Matchers
+## Matchers
 
     prime_numbers.should_not include(8)
     list.should respond_to(:length)
@@ -157,20 +157,20 @@ There are three method to pending test
 
 > Do not use `should !=`, use `should_not ==`
 
-## Floating-Point Calc
+### Floating-Point Calc
 
     result.should be_close(5.25, 0.005)
 
-## Changes
+### Changes
 
     expect { User.create!(:role => "admin") }.to change{ User.admins.count }
     expect { User.create!(:role => "admin") }.to change{ User.admins.count }.by(1)
     expect { User.create!(:role => "admin") }.to change{ User.admins.count }.to(1)
     expect { User.create!(:role => "admin") }.to change{ User.admins.count }.from(0).to(1)
 
-## Expect Errors
+### Expect Errors
 
-### with Error Type and Message Match(in String or RegEx)
+#### with Error Type and Message Match(in String or RegEx)
 
     account = Account.new 50, :dollars
     expect {
@@ -180,11 +180,11 @@ There are three method to pending test
       /attempted to withdraw 75 dollars from an account with 50 dollars/
     )
 
-### Or with No Args
+#### Or with No Args
 
     expect { do_something_risky }.to raise_error
 
-## Expect a Throw
+### Expect a Throw
 
     course = Course.new(:seats => 20)
     20.times { course.register Student.new }
@@ -192,17 +192,17 @@ There are three method to pending test
       course.register Student.new
     }.should throw_symbol(:course_full)
 
-## Predicate Matchers
+### Predicate Matchers
 
     array.empty?.should == true
     # is equivalent of
     array.should be_empty
 
-### Can Receive Args
+#### Can Receive Args
 
      user.should be_in_role("admin")
 
-## Collections
+### Collections
 
     collection.should have(37).items
     "this string".should have(11).characters
@@ -212,7 +212,7 @@ There are three method to pending test
 
 > `have_exactly()` is alias of `have()`
 
-## Subjectivity
+### Subjectivity
 
     describe Person do
       subject { Person.new(:birthdate => 19.years.ago) }

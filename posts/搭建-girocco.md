@@ -18,7 +18,7 @@ tags: [Git]
 [Github]: https://github.com
 [Gitosis]: http://progit.org/book/zh/ch4-7.html
 
-# 起因
+## 起因
 
 由于学校社团的开发团队开始慢慢扩张, 
 为了避免自己被开发没日没夜的代码提交等问题困扰, 
@@ -44,9 +44,9 @@ tags: [Git]
 [Girocco][] 是 [repo.or.cz][] 采用的代码托管方案, 简单易用.
 [Girocco][] 的 [介绍页面在此][4] . 在介绍中,他把自己与 [Gitorious][], [Github][], [Gitosis][] & [Gitolite][] 进行了对比, 称 [Gitolite][] 和 [Gitosis][] 根本不能算是一种 _hosting solution_, [Gitorious][] 又不能体现 _gitweb_ 的简约美, 而 [Github][] 不开源.
 
-# 经过
+## 经过
 
-## 第一步 检出代码 & 修改安装文件 
+### 第一步 检出代码 & 修改安装文件 
 
 先把代码检出 `git://repo.or.cz/girocco.git` 按照 _INSTALL_ 文件的说明, 先按需修改 _Girocco/Config.pm_ 文件, 然后 `make install`
 
@@ -81,13 +81,13 @@ _Girocco_ 提供的 _jailsetup.sh_ 中的 __shabong__ 是 __/bin/sh__ 然后在�
 
 	cp jobs /root/repomgr -r
 
-## 第二步 设置 apache 服务器
+### 第二步 设置 apache 服务器
 
 设置 _apache_, 没有什么难点, 就根据第一步中设置的 _Girocco/Config.pm_ 设置修改他提供给你的 __apache.conf__ 文件即可.
 
-## 第三步 设置 chroot 环境
+### 第三步 设置 chroot 环境
 
-### a. 自动挂载repo目录至 chroot 环境
+#### a. 自动挂载repo目录至 chroot 环境
 
 	cat >> /etc/fstab <<EOF
 	/proc /opt/Girocco/j/proc none defaults,bind 0 0
@@ -95,7 +95,7 @@ _Girocco_ 提供的 _jailsetup.sh_ 中的 __shabong__ 是 __/bin/sh__ 然后在�
 	EOF
 	mount -a
 
-### b. 让 syslog-ng 监听 chroot 的 log 设备
+#### b. 让 syslog-ng 监听 chroot 的 log 设备
 
 在 __/etc/syslog-ng/syslog-ng/conf__ 的 __source__ 部分加上额外的监听, 并重启进程:
 
@@ -105,7 +105,7 @@ _Girocco_ 提供的 _jailsetup.sh_ 中的 __shabong__ 是 __/bin/sh__ 然后在�
 
 > 参考资料: [syslog-ng faq][5]
 
-## c. 启动 chroot 中的 sshd, 监听 git 请求
+### c. 启动 chroot 中的 sshd, 监听 git 请求
 
 因为启动 sshd 的时候他总是告诉我找不到 __/etc/ssh/ssh_host_ecdsa_key__ 文件, 要给他强制指定一个 _RSA key_: 在 _sshd_ 的配置文件 __/opt/Girocco/j/etc/ssh/sshd_config__ 加上一行
 
@@ -119,18 +119,18 @@ _Girocco_ 提供的 _jailsetup.sh_ 中的 __shabong__ 是 __/bin/sh__ 然后在�
 
 	chroot /opt/Girocco/j /sbin/sshd
 
-## 第四步 添加 crontab
+### 第四步 添加 crontab
 
 使用命令 `crontab -e 添加两个任务
 
 	*/2  * * * * /usr/bin/nice -n 18 /root/fixupcheck.sh # adjust frequency based on number of repos
 	*/30 * * * * /usr/bin/nice -n 18 /opt/Girocco/base/jobd/jobd.sh -q --all-once
 
-## 完成
+### 完成
 
 ---
 
-# 结果
+## 结果
 
 搭建完了才发现, 我们其实并不需要一个权限这么开放的系统, 就现在而言, [Girocco][] 并没有显示出比 [Gitolite][] 好得多的优越性, 还不足以驱动我去把已有的 [Gitolite][] 给替换掉
 

@@ -16,7 +16,7 @@ tags: [Passenger, Rvm]
 
 > 本文在 MacOSX 10.8 MountainLion 下测试通过
 
-# 安装 Homebrew
+## 安装 Homebrew
 
 嘿, 先安装 [Homebrew][] 不需要我再介绍了把?
 
@@ -24,7 +24,7 @@ tags: [Passenger, Rvm]
 
 > 参考资料: [Homebrew Install][2]
 
-# 安装 RVM
+## 安装 RVM
 
 RVM 是 ruby 的环境隔离工具
 
@@ -32,7 +32,7 @@ RVM 是 ruby 的环境隔离工具
 
 > 参考资料: [Installing RVM][]
 
-# 用 Gem 安装 Passenger
+## 用 Gem 安装 Passenger
 
 [Passenger][] 是在 apache 或 nginx 上面部署 Rack 应用的程序
 
@@ -44,7 +44,7 @@ RVM 是 ruby 的环境隔离工具
 
 	rvm wrapper passenger
 
-# 用 Homebrew 安装 nginx
+## 用 Homebrew 安装 nginx
 
 [Nginx][] 是一个轻量快速流行的网页服务器
 
@@ -54,7 +54,7 @@ RVM 是 ruby 的环境隔离工具
 
 	nginx -V 2>&1 | grep passenger
 
-# 给 Nginx 配置 Passenger
+## 给 Nginx 配置 Passenger
 
 `nginx.conf`:
 
@@ -88,7 +88,7 @@ RVM 是 ruby 的环境隔离工具
 
 > 参考资料: [A Guide to a Nginx, Passenger and RVM Server][1]
 
-# 测试 Nginx 并启动
+## 测试 Nginx 并启动
 
 	sudo nginx -t # 测试 nginx 配置
 	sudo nginx #启动

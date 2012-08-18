@@ -7,7 +7,7 @@ tags: [Gentoo, TimeMachine]
 ---
 > 重点参考来源： http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/
 
-# Set up server on gentoo
+## Set up server on gentoo
 
 	# macOX 10.7 need netatalk-2.2.0 or above
 	echo 'net-fs/netatalk ~amd64' >> /etc/portage/package.keywords
@@ -41,7 +41,7 @@ tags: [Gentoo, TimeMachine]
 	rc-update add netatalk default
 	rc
 
-# Set up Time Machine on OS X lion
+## Set up Time Machine on OS X lion
 
 	# Make Time Machine could use disks through the network
 	defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
