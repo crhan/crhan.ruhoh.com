@@ -11,6 +11,13 @@ tags: [MacOS, Alfred]
 
 ![][11]
 
+接着去掉顶栏右边的放大镜
+
+	sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+	# 重启系统 UI
+	killall SystemUIServer
+
+
 然后下载 [Alfred][], 修改快捷键到 Spotlight 原有的默认快捷键 `<c-space>`
 
 最后确认一下 Alfred -> Alfred Preferences -> Advanced -> Keyboard -> Force Keybord 是不是 U.S. 键盘. 这个功能可以强制指定使用 Alfred 时使用的输入法
