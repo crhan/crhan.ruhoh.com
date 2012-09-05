@@ -1,5 +1,5 @@
 ---
-title: Ruhoh Plugin 的第一次试水
+title: Ruhoh Plugin 的第一次试水 -- Google Webmaster
 date: '2012-08-11'
 description: 由于 Ruhoh 的设计, 没法通过添加文章或者页面的方式来实现认证, 但是可以通过 Plugin 的方式来搞定, 并且还可以将这个设置添加到网站配置中. Let's Do it.
 categories: 我的博客

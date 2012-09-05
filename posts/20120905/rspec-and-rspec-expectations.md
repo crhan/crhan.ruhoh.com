@@ -3,7 +3,7 @@ title: RSpec and RSpec::Expectations
 date: '2012-08-05'
 description: RSpec 笔记和索引
 categories: 我的程序
-tags: [ruby, rspec]
+tags: [Ruby, RSpec]
 
 ---
 
