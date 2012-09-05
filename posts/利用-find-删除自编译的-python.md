@@ -33,3 +33,5 @@ tags: [Python, find]
 	mtime=$(stat -c%Y $file_name)
 	mtime_p_min=$(( ( $(date +%s) - mtime )/60 ))
 	find . -newermt @$(( mtime -1 )) -mmin +$mtime_p_min | tee find.output
+
+> PS: GNU findutils 从 4.3.3 版本开始支持 `-newerXY` 参数, 所以本脚本要求 findutils 至少 4.3.3
