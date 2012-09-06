@@ -14,4 +14,11 @@ navigation :
   - pages.html
   - about.md
 
-google_site_verification: googlef056ebc4b89ca27a
+
+plugins:
+  sitemap_generator:
+    file_name: sitemap.xml
+    exclude:
+      - search.html
+      - pages.html
+  google_site_verification: googlef056ebc4b89ca27a

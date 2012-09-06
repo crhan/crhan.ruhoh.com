@@ -1,7 +1,7 @@
 ---
 title: 使用 Tmux 代替 Screen
 date: '2012-08-16'
-description:
+description: 使用 Tmux 代替 Screen
 categories: 我的 Linux
 tags: [Tmux, Screen]
 ---
