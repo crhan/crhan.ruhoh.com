@@ -1,5 +1,5 @@
 ---
-title: 使用 post-receive 钩子自动更新博客
+title: 使用 post-receive 钩子自动更新 Ruhoh 博客
 date: '2012-08-12'
 description: Ruhoh 这个新生的东西还在缓慢的发展之中, 所以还没有成熟的 Hosting 方案出台, 官方只提供了一个基于 USERNAME.ruhoh.com 的三级域名下的托管方案. 不过幸运的是, 在 Jekyll Custom Deploy Options 的帮助下, 我对 Jekyll 提供的 Post-receive hook 稍微修改之后就能直接使用了. 下面直接上干货
 categories: 我的博客

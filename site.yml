@@ -18,7 +18,9 @@ navigation :
 plugins:
   sitemap_generator:
     file_name: sitemap.xml
-    exclude:
+    exclude_id:
       - search.html
       - pages.html
+    change_frequency_custom_name: changefreq
+    priority_custom_variable_name: priority
   google_site_verification: googlef056ebc4b89ca27a
