@@ -4,6 +4,7 @@ source "https://rubygems.org"
 # gem "rails"
 gem "ruhoh", "~> 1.1"
 gem 'psych'
+gem 'json'
 
 group :development do
   gem "guard-shell", "~> 0.5.1"
