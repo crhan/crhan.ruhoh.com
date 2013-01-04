@@ -7,3 +7,7 @@ guard 'livereload' do
   watch(%r{(app|vendor)/assets/\w+/(.+\.(css|js|html)).*})  { |m| "/assets/#{m[2]}" }
   watch(%r{posts/.+\.md})
 end
+
+guard :shell do
+  watch('.*') { `git status` }
+end
