@@ -30,6 +30,6 @@ uniq_id: '2013-01-05'
 
 我只想说括号里的这一点, 如果你配合 `while read` 的时候使用 ssh, 请务必加上 `-n` 选项, 否则 ssh 会读完你剩下的 __STDIN__ 缓冲区, 让你的下一个 while 循环直接结束
 
-### 综上所述, 你可以这样用 ssh
+### 综上所述, 你可以在脚本里这样用 ssh
 
 	ssh -o ConnectTimeout=2 -o BatchMode=yes -n $host 'command'
