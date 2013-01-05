@@ -21,3 +21,5 @@ MacX 下的截屏实际上是调用了 `/usr/sbin/screencapture` 这个程序, �
 脚本取名叫 `screenshot.sh`, 放在用户目录下的 `bin` 目录, 然后把它加入 crontab: `crontab -e`
 
 	*/2 * * * * bash ~/bin/screenshot.sh  >> /tmp/screenshot.log 2>&1
+
+这样就能每两分钟截图一次并保存在你的 `Pictures/screen` 文件夹下啦.
