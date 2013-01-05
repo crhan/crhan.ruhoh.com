@@ -18,6 +18,6 @@ MacX 下的截屏实际上是调用了 `/usr/sbin/screencapture` 这个程序, �
 	sips -Z 800 $dir/$filename # 优化一下大小, 缩小成 800px 宽
 	find $dir -ctime 1 -name '*.png' -type f -delete # 删除一天以上的截图
 
-脚本取名叫 `screenshot.sh`, 放在用户目录下的 `bin` 目录, 然后把它加入 crontab
+脚本取名叫 `screenshot.sh`, 放在用户目录下的 `bin` 目录, 然后把它加入 crontab: `crontab -e`
 
 	*/2 * * * * bash ~/bin/screenshot.sh  >> /tmp/screenshot.log 2>&1
